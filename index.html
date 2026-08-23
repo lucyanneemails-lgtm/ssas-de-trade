@@ -1,0 +1,373 @@
+<title>SSAS de Trade</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#0A0908;
+    --ink:#F1EBDD;
+    --ink-soft:#A39C8B;
+    --line:#332E26;
+    --use:#E08661;
+    --adapt:#D6AA55;
+    --skip:#8D8776;
+    --card:#161310;
+    --brand:#5B9BD5;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"IBM Plex Sans", system-ui, sans-serif;
+    padding:2.5rem 1.25rem 4rem;
+  }
+
+  .wrap{max-width:1180px;margin:0 auto;}
+
+  header{margin-bottom:1.75rem;}
+  .eyebrow{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin:0 0 0.6rem;
+  }
+  h1{
+    font-family:"Fraunces", serif;
+    font-weight:600;
+    font-size:clamp(1.8rem, 4vw, 2.6rem);
+    line-height:1.08;
+    margin:0 0 0.6rem;
+    text-wrap:balance;
+  }
+  header p{
+    max-width:64ch;
+    color:var(--ink-soft);
+    font-size:0.98rem;
+    line-height:1.55;
+    margin:0;
+  }
+  .brand{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:0.85rem;
+    font-weight:500;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--brand);
+    margin:0 0 0.9rem;
+  }
+
+  .legend{
+    display:flex;
+    flex-wrap:wrap;
+    gap:1.4rem;
+    margin:1.4rem 0 0;
+    font-size:0.82rem;
+    color:var(--ink-soft);
+  }
+  .legend span{display:inline-flex;align-items:center;gap:0.45rem;}
+  .dot{width:9px;height:9px;border-radius:50%;flex:none;}
+
+  figure{margin:2rem 0 0;}
+  .diagram-scroll{
+    overflow-x:auto;
+    border:1px solid var(--line);
+    border-radius:10px;
+    background:var(--card);
+    padding:0.5rem;
+  }
+  svg{display:block;max-width:100%;height:auto;min-width:920px;}
+  figcaption{
+    margin-top:0.75rem;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    max-width:72ch;
+    line-height:1.5;
+  }
+
+  .node-title{font-family:"Fraunces", serif;font-weight:600;}
+  .node-sub{font-family:"IBM Plex Sans", sans-serif;}
+  .tag{font-family:"IBM Plex Mono", monospace;letter-spacing:0.04em;}
+
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px,1fr));
+    gap:0.9rem;
+    margin-top:2.4rem;
+  }
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-left:4px solid var(--skip);
+    border-radius:8px;
+    padding:1rem 1.1rem;
+  }
+  .card.use{border-left-color:var(--use);}
+  .card.adapt{border-left-color:var(--adapt);}
+  .card.skip{border-left-color:var(--skip);}
+  .card.gap{border-left-color:var(--brand);}
+  .card h3{
+    font-family:"Fraunces", serif;
+    font-size:1.02rem;
+    margin:0 0 0.35rem;
+    font-weight:600;
+  }
+  .card p{
+    margin:0;
+    font-size:0.87rem;
+    color:var(--ink-soft);
+    line-height:1.5;
+  }
+  .card .k{
+    display:inline-block;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:0.68rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    margin-bottom:0.5rem;
+    color:var(--ink-soft);
+  }
+
+  footer{
+    margin-top:2.6rem;
+    padding-top:1.2rem;
+    border-top:1px solid var(--line);
+    font-size:0.83rem;
+    color:var(--ink-soft);
+  }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="brand">SSAS de Trade</p>
+    <p class="eyebrow">TradingAgents + peças financeiras do awesome-llm-apps</p>
+    <h1>O esqueleto do SSAS: um framework completo + peças soltas de reposição</h1>
+    <p>Este mapa é só a fatia de trading, separada do resto. De um lado, o TradingAgents (TauricResearch) entrega um pipeline inteiro — analistas, debate e um gate de risco. Do outro, os exemplos financeiros do awesome-llm-apps são peças soltas, úteis para substituir partes específicas do pipeline, não para começar do zero. Um terceiro ramo reúne padrões complementares — de fora do universo de trading — que reforçam justamente o que falta nos dois primeiros: rastreabilidade de decisão e leitura de eventos que move preço. Um quarto ramo traz o que a pesquisa de mercado mostra que todo trader busca numa operação: risco, diário e psicologia — o que nenhum dos três primeiros resolve sozinho.</p>
+    <div class="legend">
+      <span><i class="dot" style="background:var(--use)"></i>usar como base</span>
+      <span><i class="dot" style="background:var(--adapt)"></i>adaptar / peça de reposição</span>
+      <span><i class="dot" style="background:var(--skip)"></i>cautela ou não vale</span>
+      <span><i class="dot" style="background:var(--brand)"></i>falta — gap real de pesquisa</span>
+    </div>
+  </header>
+
+  <figure>
+    <div class="diagram-scroll">
+      <svg viewBox="0 0 1500 1430" role="img" aria-label="Mapa mental do SSAS de trading: o repositório TradingAgents fornece o pipeline completo de analistas, debate e gestão de risco; o awesome-llm-apps contribui com peças financeiras soltas; um terceiro ramo de padrões complementares traz trust-gating com trilha de auditoria e análise de earnings call; um quarto ramo reúne as necessidades reais de um trader levantadas em pesquisa: gestão de risco, diário de trade e psicologia.">
+        <defs>
+          <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L8,4 L0,8 z" fill="currentColor"></path>
+          </marker>
+        </defs>
+
+        <!-- center to branches -->
+        <g stroke="currentColor" stroke-opacity="0.55" fill="none" stroke-width="1.5">
+          <path d="M225,375 C300,270 330,148 400,148" marker-end="url(#arrow)"></path>
+          <path d="M225,375 C300,410 330,463 400,463" marker-end="url(#arrow)"></path>
+          <path d="M225,375 C300,500 330,818 400,818" marker-end="url(#arrow)"></path>
+          <path d="M225,375 C300,700 330,1168 400,1168" marker-end="url(#arrow)"></path>
+        </g>
+
+        <!-- CENTER NODE -->
+        <g>
+          <rect x="20" y="330" width="205" height="90" rx="10" fill="var(--card)" stroke="currentColor" stroke-opacity="0.7" stroke-width="1.6"></rect>
+          <text x="122" y="365" text-anchor="middle" class="node-title" font-size="16" fill="currentColor">SSAS de trading</text>
+          <text x="122" y="386" text-anchor="middle" class="node-sub" font-size="11.5" fill="var(--ink-soft)">projeto com o amigo,</text>
+          <text x="122" y="401" text-anchor="middle" class="node-sub" font-size="11.5" fill="var(--ink-soft)">ainda a construir</text>
+        </g>
+
+        <!-- BRANCH A: TRADINGAGENTS -->
+        <g>
+          <rect x="400" y="110" width="270" height="76" rx="9" fill="var(--card)" stroke="var(--use)" stroke-width="1.8"></rect>
+          <text x="535" y="140" text-anchor="middle" class="node-title" font-size="14.5" fill="currentColor">TradingAgents</text>
+          <text x="535" y="159" text-anchor="middle" class="node-sub tag" font-size="10.5" fill="var(--ink-soft)">FRAMEWORK COMPLETO · LANGGRAPH</text>
+        </g>
+        <g stroke="currentColor" stroke-opacity="0.45" fill="none" stroke-width="1.4">
+          <path d="M670,148 C740,148 760,53 840,53" marker-end="url(#arrow)"></path>
+          <path d="M670,148 C740,148 760,158 840,158" marker-end="url(#arrow)"></path>
+          <path d="M670,148 C740,148 760,263 840,263" marker-end="url(#arrow)"></path>
+        </g>
+
+        <g>
+          <rect x="840" y="20" width="340" height="66" rx="8" fill="var(--card)" stroke="var(--use)" stroke-opacity="0.6"></rect>
+          <rect x="840" y="20" width="5" height="66" fill="var(--use)"></rect>
+          <text x="862" y="43" class="node-title" font-size="13.5" fill="currentColor">Equipe de analistas</text>
+          <text x="862" y="61" class="node-sub" font-size="11" fill="var(--ink-soft)">fundamentalista, técnico, sentimento, notícias</text>
+          <text x="862" y="76" class="node-sub tag" font-size="9.5" fill="var(--use)">USAR — leitura de mercado pronta e modular</text>
+        </g>
+
+        <g>
+          <rect x="840" y="125" width="340" height="66" rx="8" fill="var(--card)" stroke="var(--use)" stroke-opacity="0.6"></rect>
+          <rect x="840" y="125" width="5" height="66" fill="var(--use)"></rect>
+          <text x="862" y="148" class="node-title" font-size="13.5" fill="currentColor">Debate bull vs. bear</text>
+          <text x="862" y="166" class="node-sub" font-size="11" fill="var(--ink-soft)">pesquisador otimista x pessimista argumentam</text>
+          <text x="862" y="181" class="node-sub tag" font-size="9.5" fill="var(--use)">USAR — freia viés antes da decisão</text>
+        </g>
+
+        <g>
+          <rect x="840" y="230" width="340" height="66" rx="8" fill="var(--card)" stroke="var(--use)" stroke-opacity="0.6"></rect>
+          <rect x="840" y="230" width="5" height="66" fill="var(--use)"></rect>
+          <text x="862" y="253" class="node-title" font-size="13.5" fill="currentColor">Trader + Risk Management</text>
+          <text x="862" y="271" class="node-sub" font-size="11" fill="var(--ink-soft)">monta ordem, risco aprova ou recusa</text>
+          <text x="862" y="286" class="node-sub tag" font-size="9.5" fill="var(--use)">USAR — é o gate que protótipo solto não tem</text>
+        </g>
+
+        <!-- BRANCH B: AWESOME-LLM-APPS PEÇAS FINANCEIRAS -->
+        <g>
+          <rect x="400" y="425" width="270" height="76" rx="9" fill="var(--card)" stroke="var(--adapt)" stroke-width="1.6"></rect>
+          <text x="535" y="455" text-anchor="middle" class="node-title" font-size="14.5" fill="currentColor">awesome-llm-apps</text>
+          <text x="535" y="474" text-anchor="middle" class="node-sub tag" font-size="10.5" fill="var(--ink-soft)">PEÇAS FINANCEIRAS SOLTAS</text>
+        </g>
+        <g stroke="currentColor" stroke-opacity="0.45" fill="none" stroke-width="1.4">
+          <path d="M670,463 C740,463 760,358 840,358" marker-end="url(#arrow)"></path>
+          <path d="M670,463 C740,463 760,463 840,463" marker-end="url(#arrow)"></path>
+          <path d="M670,463 C740,463 760,568 840,568" marker-end="url(#arrow)"></path>
+        </g>
+
+        <g>
+          <rect x="840" y="325" width="340" height="66" rx="8" fill="var(--card)" stroke="currentColor" stroke-opacity="0.3"></rect>
+          <rect x="840" y="325" width="5" height="66" fill="var(--adapt)"></rect>
+          <text x="862" y="348" class="node-title" font-size="13.5" fill="currentColor">AI Finance Agent Team</text>
+          <text x="862" y="366" class="node-sub" font-size="11" fill="var(--ink-soft)">equipe de analistas, sem debate nem risco</text>
+          <text x="862" y="381" class="node-sub tag" font-size="9.5" fill="var(--adapt)">ADAPTAR — só se quiser algo mais leve que o TradingAgents</text>
+        </g>
+
+        <g>
+          <rect x="840" y="430" width="340" height="66" rx="8" fill="var(--card)" stroke="currentColor" stroke-opacity="0.3"></rect>
+          <rect x="840" y="430" width="5" height="66" fill="var(--use)"></rect>
+          <text x="862" y="453" class="node-title" font-size="13.5" fill="currentColor">AI Investment Agent</text>
+          <text x="862" y="471" class="node-sub" font-size="11" fill="var(--ink-soft)">ingestão de dados via Yahoo Finance</text>
+          <text x="862" y="486" class="node-sub tag" font-size="9.5" fill="var(--use)">USAR — plugável direto no lugar da fonte de dado</text>
+        </g>
+
+        <g>
+          <rect x="840" y="535" width="340" height="66" rx="8" fill="var(--card)" stroke="currentColor" stroke-opacity="0.3"></rect>
+          <rect x="840" y="535" width="5" height="66" fill="var(--adapt)"></rect>
+          <text x="862" y="558" class="node-title" font-size="13.5" fill="currentColor">xAI Finance Agent (Grok)</text>
+          <text x="862" y="576" class="node-sub" font-size="11" fill="var(--ink-soft)">padrão de análise/alerta em tempo real</text>
+          <text x="862" y="591" class="node-sub tag" font-size="9.5" fill="var(--adapt)">ADAPTAR — referência de alerta, não de execução</text>
+        </g>
+
+        <!-- BRANCH C: PADRÕES COMPLEMENTARES -->
+        <g>
+          <rect x="400" y="780" width="270" height="76" rx="9" fill="var(--card)" stroke="var(--adapt)" stroke-width="1.6"></rect>
+          <text x="535" y="810" text-anchor="middle" class="node-title" font-size="14.5" fill="currentColor">Padrões complementares</text>
+          <text x="535" y="829" text-anchor="middle" class="node-sub tag" font-size="10.5" fill="var(--ink-soft)">FORA DO UNIVERSO DE TRADING</text>
+        </g>
+        <g stroke="currentColor" stroke-opacity="0.45" fill="none" stroke-width="1.4">
+          <path d="M670,818 C740,818 760,753 840,753" marker-end="url(#arrow)"></path>
+          <path d="M670,818 C740,818 760,883 840,883" marker-end="url(#arrow)"></path>
+        </g>
+
+        <g>
+          <rect x="840" y="720" width="340" height="66" rx="8" fill="var(--card)" stroke="currentColor" stroke-opacity="0.3"></rect>
+          <rect x="840" y="720" width="5" height="66" fill="var(--adapt)"></rect>
+          <text x="862" y="743" class="node-title" font-size="13.5" fill="currentColor">Trust-gating + trilha de auditoria</text>
+          <text x="862" y="761" class="node-sub" font-size="11" fill="var(--ink-soft)">score 0–100/0–1000, hash-chain de cada decisão</text>
+          <text x="862" y="776" class="node-sub tag" font-size="9.5" fill="var(--adapt)">ADAPTAR — porta a governança que falta antes do trader agir</text>
+        </g>
+
+        <g>
+          <rect x="840" y="850" width="340" height="66" rx="8" fill="var(--card)" stroke="currentColor" stroke-opacity="0.3"></rect>
+          <rect x="840" y="850" width="5" height="66" fill="var(--adapt)"></rect>
+          <text x="862" y="873" class="node-title" font-size="13.5" fill="currentColor">Earnings-call analyst agent</text>
+          <text x="862" y="891" class="node-sub" font-size="11" fill="var(--ink-soft)">transcript + filings SEC sincronizados ao vídeo</text>
+          <text x="862" y="906" class="node-sub tag" font-size="9.5" fill="var(--adapt)">ADAPTAR — cobre evento de resultado que os analistas não leem</text>
+        </g>
+
+        <!-- BRANCH D: NECESSIDADES REAIS DO TRADER (PESQUISA) -->
+        <g>
+          <rect x="400" y="1130" width="270" height="76" rx="9" fill="var(--card)" stroke="var(--brand)" stroke-width="1.6"></rect>
+          <text x="535" y="1160" text-anchor="middle" class="node-title" font-size="14.5" fill="currentColor">Necessidades reais do trader</text>
+          <text x="535" y="1179" text-anchor="middle" class="node-sub tag" font-size="10.5" fill="var(--ink-soft)">PESQUISA DE MERCADO</text>
+        </g>
+        <g stroke="currentColor" stroke-opacity="0.45" fill="none" stroke-width="1.4">
+          <path d="M670,1168 C740,1168 760,1093 840,1093" marker-end="url(#arrow)"></path>
+          <path d="M670,1168 C740,1168 760,1198 840,1198" marker-end="url(#arrow)"></path>
+          <path d="M670,1168 C740,1168 760,1303 840,1303" marker-end="url(#arrow)"></path>
+        </g>
+
+        <g>
+          <rect x="840" y="1060" width="340" height="66" rx="8" fill="var(--card)" stroke="currentColor" stroke-opacity="0.3"></rect>
+          <rect x="840" y="1060" width="5" height="66" fill="var(--brand)"></rect>
+          <text x="862" y="1083" class="node-title" font-size="13.5" fill="currentColor">Position sizing dinâmico + circuit breaker</text>
+          <text x="862" y="1101" class="node-sub" font-size="11" fill="var(--ink-soft)">risco por trade escala com a conta e a volatilidade, não é fixo</text>
+          <text x="862" y="1116" class="node-sub tag" font-size="9.5" fill="var(--brand)">FALTA — o gate de risco do TradingAgents ainda não faz isso</text>
+        </g>
+
+        <g>
+          <rect x="840" y="1165" width="340" height="66" rx="8" fill="var(--card)" stroke="currentColor" stroke-opacity="0.3"></rect>
+          <rect x="840" y="1165" width="5" height="66" fill="var(--brand)"></rect>
+          <text x="862" y="1188" class="node-title" font-size="13.5" fill="currentColor">Diário de trade</text>
+          <text x="862" y="1206" class="node-sub" font-size="11" fill="var(--ink-soft)">entrada, saída, motivo e métrica — não só o P&amp;L final</text>
+          <text x="862" y="1221" class="node-sub tag" font-size="9.5" fill="var(--brand)">FALTA — é o item mais citado como essencial na pesquisa</text>
+        </g>
+
+        <g>
+          <rect x="840" y="1270" width="340" height="66" rx="8" fill="var(--card)" stroke="currentColor" stroke-opacity="0.3"></rect>
+          <rect x="840" y="1270" width="5" height="66" fill="var(--brand)"></rect>
+          <text x="862" y="1293" class="node-title" font-size="13.5" fill="currentColor">Psicologia sistematizada</text>
+          <text x="862" y="1311" class="node-sub" font-size="11" fill="var(--ink-soft)">pausa automática após N perdas seguidas / revenge trade</text>
+          <text x="862" y="1326" class="node-sub tag" font-size="9.5" fill="var(--brand)">FALTA — transforma disciplina em regra, não em força de vontade</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>TradingAgents dá o pipeline inteiro (analistas → debate → trader → risco); awesome-llm-apps contribui com peças soltas para substituir uma etapa específica; padrões complementares — trust-gating com auditoria hash-chained e leitura de earnings call — reforçam a governança e a cobertura de eventos que nenhum dos dois repositórios de trading resolve por si; necessidades reais do trader, levantadas em pesquisa, marcam o que ainda falta construir: position sizing dinâmico, diário de trade e psicologia sistematizada.</figcaption>
+  </figure>
+
+  <div class="cards">
+    <div class="card use">
+      <span class="k">Ponto de partida</span>
+      <h3>Fork do TradingAgents</h3>
+      <p>Comece clonando o repositório inteiro — ele já vem com o fluxo analistas → debate → trader → risco funcionando em LangGraph. É mais rápido ajustar um pipeline que existe do que montar um do zero com peças soltas.</p>
+    </div>
+    <div class="card use">
+      <span class="k">Primeira troca</span>
+      <h3>Fonte de dados de mercado</h3>
+      <p>O padrão de ingestão do AI Investment Agent (Yahoo Finance) é a peça mais fácil de encaixar — troque por B3, corretora ou provedor local sem tocar no resto do pipeline.</p>
+    </div>
+    <div class="card adapt">
+      <span class="k">Opcional</span>
+      <h3>Alertas em tempo real</h3>
+      <p>O padrão do xAI Finance Agent (Grok) serve de referência para uma camada de alerta contínuo, separada da decisão de trade em si.</p>
+    </div>
+    <div class="card adapt">
+      <span class="k">Padrão complementar</span>
+      <h3>Trust-gating antes do trader agir</h3>
+      <p>O gate de risco do TradingAgents decide a ordem, mas não registra por que cada agente foi autorizado a participar da decisão. O padrão de trust-gating (score por agente + trilha de auditoria hash-chained, onde qualquer alteração quebra a cadeia) resolve isso — essencial se o SSAS vai movimentar dinheiro real entre você e seu amigo.</p>
+    </div>
+    <div class="card adapt">
+      <span class="k">Padrão complementar</span>
+      <h3>Cobertura de earnings call</h3>
+      <p>Nenhum analista do TradingAgents lê uma teleconferência de resultados em tempo real. O padrão do earnings-call analyst agent sincroniza transcript, filings da SEC e notícias ao vídeo da call — um evento que costuma mover preço mais que qualquer sinal técnico do dia.</p>
+    </div>
+    <div class="card skip">
+      <span class="k">Antes de arriscar dinheiro</span>
+      <h3>Nenhuma das fontes é infraestrutura de produção</h3>
+      <p>TradingAgents e awesome-llm-apps se declaram "apenas pesquisa"; os padrões complementares vêm de domínios fora de trading. Faltam latência de execução real, tratamento de falha de corretora e compliance — isso o SSAS precisa construir por fora.</p>
+    </div>
+    <div class="card gap">
+      <span class="k">Gap de pesquisa</span>
+      <h3>Position sizing dinâmico + circuit breaker</h3>
+      <p>O padrão da indústria é escalar o risco por trade conforme o tamanho da conta e a volatilidade do momento, com um limite de drawdown acumulado que pausa o sistema — não um risco fixo o tempo todo. É o achado mais consistente em toda a pesquisa de gestão de risco.</p>
+    </div>
+    <div class="card gap">
+      <span class="k">Gap de pesquisa</span>
+      <h3>Diário de trade</h3>
+      <p>Quase toda fonte cita o journal como essencial: registrar entrada, saída, tamanho e o motivo da decisão — não só o resultado final. É o que permite distinguir "meu método tem furo" de "eu falhei em executar o método", a confusão mais comum entre traders.</p>
+    </div>
+    <div class="card gap">
+      <span class="k">Gap de pesquisa</span>
+      <h3>Psicologia sistematizada</h3>
+      <p>Medo, ganância e revenge trading aparecem em todas as fontes como a principal causa de perda — não falta de sinal. A solução repetida é transformar isso em regra automática (pausa após N perdas seguidas, bloqueio de reentrada imediata) em vez de depender de força de vontade.</p>
+    </div>
+  </div>
+
+  <footer>
+    Fontes: <span class="tag">github.com/TauricResearch/TradingAgents</span> (Apache-2.0), a fatia financeira de <span class="tag">github.com/Shubhamsaboo/awesome-llm-apps</span> (Apache-2.0), e os padrões de trust-gating / auditoria hash-chained e earnings-call analysis do mesmo repositório. O ramo "necessidades reais do trader" vem de pesquisa de mercado sobre gestão de risco, diário de trade e psicologia de day trading (TradeAlgo, ChartMini, TradeTally, TradesViz, Optimus Futures, ACY). Todos rotulados para fins de pesquisa, não como conselho financeiro.
+  </footer>
+</div>
