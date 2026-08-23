@@ -181,9 +181,110 @@
     line-height:1.4;
   }
   .study-item:hover{border-color:var(--brand);}
+
+  .tabs{
+    display:flex;
+    gap:0.5rem;
+    margin:0 0 2rem;
+    border-bottom:1px solid var(--line);
+  }
+  .tab-btn{
+    font:inherit;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:0.78rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    background:none;
+    border:none;
+    color:var(--ink-soft);
+    padding:0.75rem 0.2rem;
+    margin-right:1.4rem;
+    cursor:pointer;
+    border-bottom:2px solid transparent;
+  }
+  .tab-btn[aria-selected="true"]{
+    color:var(--ink);
+    border-bottom-color:var(--brand);
+  }
+  .panel{display:none;}
+  .panel.active{display:block;}
+
+  .checklist-head{margin-bottom:1.8rem;}
+  .checklist-head h1{margin-bottom:0.4rem;}
+  .progress-bar{
+    height:8px;
+    border-radius:999px;
+    background:var(--card);
+    border:1px solid var(--line);
+    overflow:hidden;
+    margin:1rem 0 0.4rem;
+    max-width:420px;
+  }
+  .progress-fill{
+    height:100%;
+    background:var(--brand);
+    width:0%;
+    transition:width 0.3s ease;
+  }
+  .progress-label{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:0.76rem;
+    color:var(--ink-soft);
+  }
+
+  .check-group{margin-bottom:1.8rem;}
+  .check-group h2{
+    font-family:"Fraunces", serif;
+    font-weight:600;
+    font-size:1.08rem;
+    margin:0 0 0.8rem;
+    padding-bottom:0.5rem;
+    border-bottom:1px solid var(--line);
+  }
+  .check-item{
+    display:flex;
+    align-items:flex-start;
+    gap:0.7rem;
+    padding:0.6rem 0.2rem;
+    border-bottom:1px solid var(--line);
+  }
+  .check-item:last-child{border-bottom:none;}
+  .check-item input[type="checkbox"]{
+    flex:none;
+    width:18px;height:18px;
+    margin-top:0.15rem;
+    accent-color:var(--brand);
+    cursor:pointer;
+  }
+  .check-item label{
+    flex:1;
+    font-size:0.92rem;
+    line-height:1.45;
+    cursor:pointer;
+  }
+  .check-item.done label{color:var(--ink-soft);text-decoration:line-through;}
+  .status-pill{
+    flex:none;
+    font-family:"IBM Plex Mono", monospace;
+    font-size:0.66rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    padding:0.2rem 0.55rem;
+    border-radius:999px;
+    white-space:nowrap;
+  }
+  .status-pill.st-done{background:rgba(91,155,213,0.16);color:var(--brand);}
+  .status-pill.st-progress{background:rgba(214,170,85,0.16);color:var(--adapt);}
+  .status-pill.st-todo{background:rgba(141,135,118,0.16);color:var(--skip);}
 </style>
 
 <div class="wrap">
+  <div class="tabs" role="tablist">
+    <button class="tab-btn" id="tab-mapa" role="tab" aria-selected="true" aria-controls="panel-mapa">Mapa mental</button>
+    <button class="tab-btn" id="tab-checklist" role="tab" aria-selected="false" aria-controls="panel-checklist">Checklist</button>
+  </div>
+
+  <div class="panel active" id="panel-mapa" role="tabpanel" aria-labelledby="tab-mapa">
   <header>
     <p class="brand">SSAS de Trade</p>
     <p class="eyebrow">TradingAgents + peças financeiras do awesome-llm-apps</p>
@@ -454,4 +555,98 @@
   <footer>
     Fontes: <span class="tag">github.com/TauricResearch/TradingAgents</span> (Apache-2.0), a fatia financeira de <span class="tag">github.com/Shubhamsaboo/awesome-llm-apps</span> (Apache-2.0), e os padrões de trust-gating / auditoria hash-chained e earnings-call analysis do mesmo repositório. O ramo "necessidades reais do trader" vem de pesquisa de mercado sobre infraestrutura de execução, gestão de risco, diário de trade, psicologia de day trading e compliance de algo trading (TradeAlgo, ChartMini, TradeTally, TradesViz, Optimus Futures, ACY, Nurp, Sahi). Todos rotulados para fins de pesquisa, não como conselho financeiro.
   </footer>
+  </div>
+
+  <div class="panel" id="panel-checklist" role="tabpanel" aria-labelledby="tab-checklist">
+    <div class="checklist-head">
+      <p class="brand">SSAS de Trade</p>
+      <h1>Checklist de desenvolvimento</h1>
+      <p>Tudo que precisa acontecer pra sair do mapa mental e chegar num robô de trade rodando de verdade. Marca o que já foi feito — fica salvo neste navegador.</p>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+      <p class="progress-label" id="progress-label">0 de 0 concluídos</p>
+    </div>
+
+    <div class="check-group">
+      <h2>1. Pesquisa e planejamento</h2>
+      <div class="check-item" data-id="mapa-mental" data-status="progress"><input type="checkbox" id="c-mapa-mental"><label for="c-mapa-mental">Criação de mapa mental</label><span class="status-pill st-progress">em andamento</span></div>
+      <div class="check-item" data-id="bench-repos" data-status="done"><input type="checkbox" id="c-bench-repos" checked><label for="c-bench-repos">Benchmark de repositórios concorrentes (TradingAgents, ai-hedge-fund, FinRobot, FinRL-X)</label><span class="status-pill st-done">concluído</span></div>
+      <div class="check-item" data-id="pesquisa-trader" data-status="done"><input type="checkbox" id="c-pesquisa-trader" checked><label for="c-pesquisa-trader">Pesquisa das necessidades reais de um trader (risco, diário, psicologia, compliance)</label><span class="status-pill st-done">concluído</span></div>
+      <div class="check-item" data-id="captura-conhecimento" data-status="todo"><input type="checkbox" id="c-captura-conhecimento"><label for="c-captura-conhecimento">Capturar o conhecimento do amigo (regras de entrada/saída, o que ele evita) em formato estruturado</label><span class="status-pill st-todo">pendente</span></div>
+    </div>
+
+    <div class="check-group">
+      <h2>2. Infraestrutura técnica</h2>
+      <div class="check-item" data-id="clone-repo" data-status="done"><input type="checkbox" id="c-clone-repo" checked><label for="c-clone-repo">Clonar e instalar o TradingAgents (venv + dependências)</label><span class="status-pill st-done">concluído</span></div>
+      <div class="check-item" data-id="config-llm" data-status="done"><input type="checkbox" id="c-config-llm" checked><label for="c-config-llm">Configurar provedor de LLM (chave testada e validada)</label><span class="status-pill st-done">concluído</span></div>
+      <div class="check-item" data-id="fonte-dados" data-status="todo"><input type="checkbox" id="c-fonte-dados"><label for="c-fonte-dados">Trocar a fonte de dados de mercado pra corretora/provedor real (B3 ou equivalente)</label><span class="status-pill st-todo">pendente</span></div>
+      <div class="check-item" data-id="conexao-corretora" data-status="todo"><input type="checkbox" id="c-conexao-corretora"><label for="c-conexao-corretora">Conexão com corretora pra execução automática de ordens</label><span class="status-pill st-todo">pendente</span></div>
+      <div class="check-item" data-id="backtesting" data-status="todo"><input type="checkbox" id="c-backtesting"><label for="c-backtesting">Rodar backtesting completo antes de qualquer operação com dinheiro real</label><span class="status-pill st-todo">pendente</span></div>
+    </div>
+
+    <div class="check-group">
+      <h2>3. Pipeline de decisão</h2>
+      <div class="check-item" data-id="agente-persona" data-status="todo"><input type="checkbox" id="c-agente-persona"><label for="c-agente-persona">Criar agente-persona com a filosofia/regras do amigo, debatendo ao lado dos analistas</label><span class="status-pill st-todo">pendente</span></div>
+      <div class="check-item" data-id="position-sizing" data-status="todo"><input type="checkbox" id="c-position-sizing"><label for="c-position-sizing">Implementar position sizing dinâmico + circuit breaker de drawdown</label><span class="status-pill st-todo">pendente</span></div>
+      <div class="check-item" data-id="trust-gating" data-status="todo"><input type="checkbox" id="c-trust-gating"><label for="c-trust-gating">Adicionar trust-gating + trilha de auditoria hash-chained nas decisões</label><span class="status-pill st-todo">pendente</span></div>
+      <div class="check-item" data-id="earnings-call" data-status="todo"><input type="checkbox" id="c-earnings-call"><label for="c-earnings-call">Cobertura de earnings call / eventos de resultado</label><span class="status-pill st-todo">pendente</span></div>
+    </div>
+
+    <div class="check-group">
+      <h2>4. Disciplina e governança</h2>
+      <div class="check-item" data-id="diario-trade" data-status="todo"><input type="checkbox" id="c-diario-trade"><label for="c-diario-trade">Construir o diário de trade (entrada, saída, motivo, métrica)</label><span class="status-pill st-todo">pendente</span></div>
+      <div class="check-item" data-id="psicologia" data-status="todo"><input type="checkbox" id="c-psicologia"><label for="c-psicologia">Sistematizar a psicologia (pausa automática após N perdas seguidas)</label><span class="status-pill st-todo">pendente</span></div>
+      <div class="check-item" data-id="compliance" data-status="todo"><input type="checkbox" id="c-compliance"><label for="c-compliance">Mapear regras de compliance da corretora antes de automatizar execução</label><span class="status-pill st-todo">pendente</span></div>
+    </div>
+
+    <div class="check-group">
+      <h2>5. Antes de operar com dinheiro real</h2>
+      <div class="check-item" data-id="paper-trading" data-status="todo"><input type="checkbox" id="c-paper-trading"><label for="c-paper-trading">Rodar em paper trading (dinheiro fictício) por um período mínimo definido</label><span class="status-pill st-todo">pendente</span></div>
+      <div class="check-item" data-id="revisao-amigo" data-status="todo"><input type="checkbox" id="c-revisao-amigo"><label for="c-revisao-amigo">Revisão final do amigo validando as regras codificadas contra a experiência real dele</label><span class="status-pill st-todo">pendente</span></div>
+    </div>
+  </div>
 </div>
+
+<script>
+  (function(){
+    var tabs = document.querySelectorAll('.tab-btn');
+    tabs.forEach(function(t){
+      t.addEventListener('click', function(){
+        tabs.forEach(function(x){ x.setAttribute('aria-selected','false'); });
+        document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('active'); });
+        t.setAttribute('aria-selected','true');
+        document.getElementById(t.getAttribute('aria-controls')).classList.add('active');
+      });
+    });
+
+    var STORE_KEY = 'ssas-checklist-v1';
+    var saved = {};
+    try { saved = JSON.parse(localStorage.getItem(STORE_KEY) || '{}'); } catch(e) { saved = {}; }
+
+    var items = document.querySelectorAll('.check-item');
+    function save(){
+      try { localStorage.setItem(STORE_KEY, JSON.stringify(saved)); } catch(e) {}
+    }
+    function updateProgress(){
+      var total = items.length, done = 0;
+      items.forEach(function(it){ if (it.classList.contains('done')) done++; });
+      var pct = total ? Math.round((done/total)*100) : 0;
+      document.getElementById('progress-fill').style.width = pct + '%';
+      document.getElementById('progress-label').textContent = done + ' de ' + total + ' concluídos';
+    }
+    items.forEach(function(it){
+      var id = it.getAttribute('data-id');
+      var cb = it.querySelector('input[type="checkbox"]');
+      if (Object.prototype.hasOwnProperty.call(saved, id)) {
+        cb.checked = saved[id];
+      }
+      if (cb.checked) it.classList.add('done');
+      cb.addEventListener('change', function(){
+        saved[id] = cb.checked;
+        it.classList.toggle('done', cb.checked);
+        save();
+        updateProgress();
+      });
+    });
+    updateProgress();
+  })();
+</script>
