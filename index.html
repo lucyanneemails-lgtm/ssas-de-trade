@@ -157,7 +157,7 @@
 
   <figure>
     <div class="diagram-scroll">
-      <svg viewBox="0 0 1500 1430" role="img" aria-label="Mapa mental do SSAS de trading: o repositório TradingAgents fornece o pipeline completo de analistas, debate e gestão de risco; o awesome-llm-apps contribui com peças financeiras soltas; um terceiro ramo de padrões complementares traz trust-gating com trilha de auditoria e análise de earnings call; um quarto ramo reúne as necessidades reais de um trader levantadas em pesquisa: gestão de risco, diário de trade e psicologia.">
+      <svg viewBox="0 0 1500 1640" role="img" aria-label="Mapa mental do SSAS de trading: o repositório TradingAgents fornece o pipeline completo de analistas, debate e gestão de risco; o awesome-llm-apps contribui com peças financeiras soltas; um terceiro ramo de padrões complementares traz trust-gating com trilha de auditoria e análise de earnings call; um quarto ramo reúne as cinco necessidades reais de um trader levantadas em pesquisa: infraestrutura de execução, gestão de risco, diário de trade, psicologia e compliance.">
         <defs>
           <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
             <path d="M0,0 L8,4 L0,8 z" fill="currentColor"></path>
@@ -169,7 +169,7 @@
           <path d="M225,375 C300,270 330,148 400,148" marker-end="url(#arrow)"></path>
           <path d="M225,375 C300,410 330,463 400,463" marker-end="url(#arrow)"></path>
           <path d="M225,375 C300,500 330,818 400,818" marker-end="url(#arrow)"></path>
-          <path d="M225,375 C300,700 330,1168 400,1168" marker-end="url(#arrow)"></path>
+          <path d="M225,375 C300,700 330,1273 400,1273" marker-end="url(#arrow)"></path>
         </g>
 
         <!-- CENTER NODE -->
@@ -281,42 +281,60 @@
 
         <!-- BRANCH D: NECESSIDADES REAIS DO TRADER (PESQUISA) -->
         <g>
-          <rect x="400" y="1130" width="270" height="76" rx="9" fill="var(--card)" stroke="var(--brand)" stroke-width="1.6"></rect>
-          <text x="535" y="1160" text-anchor="middle" class="node-title" font-size="14.5" fill="currentColor">Necessidades reais do trader</text>
-          <text x="535" y="1179" text-anchor="middle" class="node-sub tag" font-size="10.5" fill="var(--ink-soft)">PESQUISA DE MERCADO</text>
+          <rect x="400" y="1235" width="270" height="76" rx="9" fill="var(--card)" stroke="var(--brand)" stroke-width="1.6"></rect>
+          <text x="535" y="1265" text-anchor="middle" class="node-title" font-size="14.5" fill="currentColor">Necessidades reais do trader</text>
+          <text x="535" y="1284" text-anchor="middle" class="node-sub tag" font-size="10.5" fill="var(--ink-soft)">PESQUISA DE MERCADO</text>
         </g>
         <g stroke="currentColor" stroke-opacity="0.45" fill="none" stroke-width="1.4">
-          <path d="M670,1168 C740,1168 760,1093 840,1093" marker-end="url(#arrow)"></path>
-          <path d="M670,1168 C740,1168 760,1198 840,1198" marker-end="url(#arrow)"></path>
-          <path d="M670,1168 C740,1168 760,1303 840,1303" marker-end="url(#arrow)"></path>
+          <path d="M670,1273 C740,1273 760,1063 840,1063" marker-end="url(#arrow)"></path>
+          <path d="M670,1273 C740,1273 760,1168 840,1168" marker-end="url(#arrow)"></path>
+          <path d="M670,1273 C740,1273 760,1273 840,1273" marker-end="url(#arrow)"></path>
+          <path d="M670,1273 C740,1273 760,1378 840,1378" marker-end="url(#arrow)"></path>
+          <path d="M670,1273 C740,1273 760,1483 840,1483" marker-end="url(#arrow)"></path>
         </g>
 
         <g>
-          <rect x="840" y="1060" width="340" height="66" rx="8" fill="var(--card)" stroke="currentColor" stroke-opacity="0.3"></rect>
-          <rect x="840" y="1060" width="5" height="66" fill="var(--brand)"></rect>
-          <text x="862" y="1083" class="node-title" font-size="13.5" fill="currentColor">Position sizing dinâmico + circuit breaker</text>
-          <text x="862" y="1101" class="node-sub" font-size="11" fill="var(--ink-soft)">risco por trade escala com a conta e a volatilidade, não é fixo</text>
-          <text x="862" y="1116" class="node-sub tag" font-size="9.5" fill="var(--brand)">FALTA — o gate de risco do TradingAgents ainda não faz isso</text>
+          <rect x="840" y="1030" width="340" height="66" rx="8" fill="var(--card)" stroke="currentColor" stroke-opacity="0.3"></rect>
+          <rect x="840" y="1030" width="5" height="66" fill="var(--brand)"></rect>
+          <text x="862" y="1053" class="node-title" font-size="13.5" fill="currentColor">Infraestrutura básica de execução</text>
+          <text x="862" y="1071" class="node-sub" font-size="11" fill="var(--ink-soft)">dado de mercado em tempo real, corretora conectada, backtest antes do real</text>
+          <text x="862" y="1086" class="node-sub tag" font-size="9.5" fill="var(--brand)">BASE — sem isso não existe operação, só protótipo</text>
         </g>
 
         <g>
-          <rect x="840" y="1165" width="340" height="66" rx="8" fill="var(--card)" stroke="currentColor" stroke-opacity="0.3"></rect>
-          <rect x="840" y="1165" width="5" height="66" fill="var(--brand)"></rect>
-          <text x="862" y="1188" class="node-title" font-size="13.5" fill="currentColor">Diário de trade</text>
-          <text x="862" y="1206" class="node-sub" font-size="11" fill="var(--ink-soft)">entrada, saída, motivo e métrica — não só o P&amp;L final</text>
-          <text x="862" y="1221" class="node-sub tag" font-size="9.5" fill="var(--brand)">FALTA — é o item mais citado como essencial na pesquisa</text>
+          <rect x="840" y="1135" width="340" height="66" rx="8" fill="var(--card)" stroke="currentColor" stroke-opacity="0.3"></rect>
+          <rect x="840" y="1135" width="5" height="66" fill="var(--brand)"></rect>
+          <text x="862" y="1158" class="node-title" font-size="13.5" fill="currentColor">Position sizing dinâmico + circuit breaker</text>
+          <text x="862" y="1176" class="node-sub" font-size="11" fill="var(--ink-soft)">risco por trade escala com a conta e a volatilidade, não é fixo</text>
+          <text x="862" y="1191" class="node-sub tag" font-size="9.5" fill="var(--brand)">FALTA — o gate de risco do TradingAgents ainda não faz isso</text>
         </g>
 
         <g>
-          <rect x="840" y="1270" width="340" height="66" rx="8" fill="var(--card)" stroke="currentColor" stroke-opacity="0.3"></rect>
-          <rect x="840" y="1270" width="5" height="66" fill="var(--brand)"></rect>
-          <text x="862" y="1293" class="node-title" font-size="13.5" fill="currentColor">Psicologia sistematizada</text>
-          <text x="862" y="1311" class="node-sub" font-size="11" fill="var(--ink-soft)">pausa automática após N perdas seguidas / revenge trade</text>
-          <text x="862" y="1326" class="node-sub tag" font-size="9.5" fill="var(--brand)">FALTA — transforma disciplina em regra, não em força de vontade</text>
+          <rect x="840" y="1240" width="340" height="66" rx="8" fill="var(--card)" stroke="currentColor" stroke-opacity="0.3"></rect>
+          <rect x="840" y="1240" width="5" height="66" fill="var(--brand)"></rect>
+          <text x="862" y="1263" class="node-title" font-size="13.5" fill="currentColor">Diário de trade</text>
+          <text x="862" y="1281" class="node-sub" font-size="11" fill="var(--ink-soft)">entrada, saída, motivo e métrica — não só o P&amp;L final</text>
+          <text x="862" y="1296" class="node-sub tag" font-size="9.5" fill="var(--brand)">FALTA — é o item mais citado como essencial na pesquisa</text>
+        </g>
+
+        <g>
+          <rect x="840" y="1345" width="340" height="66" rx="8" fill="var(--card)" stroke="currentColor" stroke-opacity="0.3"></rect>
+          <rect x="840" y="1345" width="5" height="66" fill="var(--brand)"></rect>
+          <text x="862" y="1368" class="node-title" font-size="13.5" fill="currentColor">Psicologia sistematizada</text>
+          <text x="862" y="1386" class="node-sub" font-size="11" fill="var(--ink-soft)">pausa automática após N perdas seguidas / revenge trade</text>
+          <text x="862" y="1401" class="node-sub tag" font-size="9.5" fill="var(--brand)">FALTA — transforma disciplina em regra, não em força de vontade</text>
+        </g>
+
+        <g>
+          <rect x="840" y="1450" width="340" height="66" rx="8" fill="var(--card)" stroke="currentColor" stroke-opacity="0.3"></rect>
+          <rect x="840" y="1450" width="5" height="66" fill="var(--brand)"></rect>
+          <text x="862" y="1473" class="node-title" font-size="13.5" fill="currentColor">Compliance / regulatório</text>
+          <text x="862" y="1491" class="node-sub" font-size="11" fill="var(--ink-soft)">regras da corretora sobre scalping/arbitragem; ordem automatizada rastreável</text>
+          <text x="862" y="1506" class="node-sub tag" font-size="9.5" fill="var(--brand)">FALTA — só relevante quando o SSAS de fato automatizar execução</text>
         </g>
       </svg>
     </div>
-    <figcaption>TradingAgents dá o pipeline inteiro (analistas → debate → trader → risco); awesome-llm-apps contribui com peças soltas para substituir uma etapa específica; padrões complementares — trust-gating com auditoria hash-chained e leitura de earnings call — reforçam a governança e a cobertura de eventos que nenhum dos dois repositórios de trading resolve por si; necessidades reais do trader, levantadas em pesquisa, marcam o que ainda falta construir: position sizing dinâmico, diário de trade e psicologia sistematizada.</figcaption>
+    <figcaption>TradingAgents dá o pipeline inteiro (analistas → debate → trader → risco); awesome-llm-apps contribui com peças soltas para substituir uma etapa específica; padrões complementares — trust-gating com auditoria hash-chained e leitura de earnings call — reforçam a governança e a cobertura de eventos que nenhum dos dois repositórios de trading resolve por si; necessidades reais do trader, levantadas em pesquisa, marcam as cinco frentes que ainda faltam construir: infraestrutura de execução, position sizing dinâmico, diário de trade, psicologia sistematizada e compliance.</figcaption>
   </figure>
 
   <div class="cards">
@@ -352,6 +370,11 @@
     </div>
     <div class="card gap">
       <span class="k">Gap de pesquisa</span>
+      <h3>Infraestrutura básica de execução</h3>
+      <p>As três pernas que toda pesquisa assume como pré-requisito: fonte de dado de mercado em tempo real (não atrasado), conexão direta com a corretora pra execução automática, e backtest rodado antes de qualquer dinheiro real entrar. Sem isso o SSAS é protótipo, não operação.</p>
+    </div>
+    <div class="card gap">
+      <span class="k">Gap de pesquisa</span>
       <h3>Position sizing dinâmico + circuit breaker</h3>
       <p>O padrão da indústria é escalar o risco por trade conforme o tamanho da conta e a volatilidade do momento, com um limite de drawdown acumulado que pausa o sistema — não um risco fixo o tempo todo. É o achado mais consistente em toda a pesquisa de gestão de risco.</p>
     </div>
@@ -365,9 +388,14 @@
       <h3>Psicologia sistematizada</h3>
       <p>Medo, ganância e revenge trading aparecem em todas as fontes como a principal causa de perda — não falta de sinal. A solução repetida é transformar isso em regra automática (pausa após N perdas seguidas, bloqueio de reentrada imediata) em vez de depender de força de vontade.</p>
     </div>
+    <div class="card gap">
+      <span class="k">Gap de pesquisa</span>
+      <h3>Compliance / regulatório</h3>
+      <p>Corretoras têm regras próprias sobre scalping, arbitragem entre contas e uso de feed de dado não autorizado — e descumprir pode encerrar a conta. Em mercados que já regulam algo trading, toda ordem automatizada passa a carregar um identificador rastreável até a origem. Só entra em jogo quando o SSAS de fato automatizar a execução, mas vale mapear antes.</p>
+    </div>
   </div>
 
   <footer>
-    Fontes: <span class="tag">github.com/TauricResearch/TradingAgents</span> (Apache-2.0), a fatia financeira de <span class="tag">github.com/Shubhamsaboo/awesome-llm-apps</span> (Apache-2.0), e os padrões de trust-gating / auditoria hash-chained e earnings-call analysis do mesmo repositório. O ramo "necessidades reais do trader" vem de pesquisa de mercado sobre gestão de risco, diário de trade e psicologia de day trading (TradeAlgo, ChartMini, TradeTally, TradesViz, Optimus Futures, ACY). Todos rotulados para fins de pesquisa, não como conselho financeiro.
+    Fontes: <span class="tag">github.com/TauricResearch/TradingAgents</span> (Apache-2.0), a fatia financeira de <span class="tag">github.com/Shubhamsaboo/awesome-llm-apps</span> (Apache-2.0), e os padrões de trust-gating / auditoria hash-chained e earnings-call analysis do mesmo repositório. O ramo "necessidades reais do trader" vem de pesquisa de mercado sobre infraestrutura de execução, gestão de risco, diário de trade, psicologia de day trading e compliance de algo trading (TradeAlgo, ChartMini, TradeTally, TradesViz, Optimus Futures, ACY, Nurp, Sahi). Todos rotulados para fins de pesquisa, não como conselho financeiro.
   </footer>
 </div>
