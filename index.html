@@ -139,6 +139,48 @@
     font-size:0.83rem;
     color:var(--ink-soft);
   }
+
+  .study{margin-top:2.6rem;}
+  .study h2{
+    font-family:"Fraunces", serif;
+    font-weight:600;
+    font-size:1.3rem;
+    margin:0 0 0.3rem;
+  }
+  .study .study-sub{
+    color:var(--ink-soft);
+    font-size:0.9rem;
+    margin:0 0 1.1rem;
+  }
+  .study-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+    gap:0.7rem;
+  }
+  .study-item{
+    display:flex;
+    align-items:flex-start;
+    gap:0.7rem;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:0.8rem 0.9rem;
+    text-decoration:none;
+  }
+  .study-item .yt{
+    flex:none;
+    width:26px;height:26px;border-radius:6px;
+    background:#E0433F;
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:12px;font-weight:700;
+    font-family:"IBM Plex Mono", monospace;
+  }
+  .study-item span{
+    color:var(--ink);
+    font-size:0.86rem;
+    line-height:1.4;
+  }
+  .study-item:hover{border-color:var(--brand);}
 </style>
 
 <div class="wrap">
@@ -392,6 +434,22 @@
       <p>Corretoras têm regras próprias sobre scalping, arbitragem entre contas e uso de feed de dado não autorizado — e descumprir pode encerrar a conta. Em mercados que já regulam algo trading, toda ordem automatizada passa a carregar um identificador rastreável até a origem. Só entra em jogo quando o SSAS de fato automatizar a execução, mas vale mapear antes.</p>
     </div>
   </div>
+
+  <section class="study">
+    <h2>Links importantes / Material de estudo</h2>
+    <p class="study-sub">Vídeos de referência sobre montar agentes de IA pra trading — assista antes de decidir a arquitetura final do SSAS.</p>
+    <div class="study-list">
+      <a class="study-item" href="https://www.youtube.com/watch?v=HfEu7XPUnAU" target="_blank" rel="noopener"><span class="yt">▶</span><span>I Built An Entire AI Trading Team With Claude Code in 14 min</span></a>
+      <a class="study-item" href="https://www.youtube.com/watch?v=PN8-lTQ6ZtQ" target="_blank" rel="noopener"><span class="yt">▶</span><span>Crie robôs de trading com IA (sem escrever código!)</span></a>
+      <a class="study-item" href="https://www.youtube.com/watch?v=CbN2kzaapmY" target="_blank" rel="noopener"><span class="yt">▶</span><span>Testando robô de trade usando I.A. Claude Code</span></a>
+      <a class="study-item" href="https://www.youtube.com/watch?v=DD6WOkmEW6Q" target="_blank" rel="noopener"><span class="yt">▶</span><span>Vídeo de referência (YouTube) — título não disponível para pré-visualização</span></a>
+      <a class="study-item" href="https://www.youtube.com/watch?v=2Ky_Hj-Fg_A" target="_blank" rel="noopener"><span class="yt">▶</span><span>Juntei Claude e ProfitChart — insano. Criei meu assistente de investimentos</span></a>
+      <a class="study-item" href="https://www.youtube.com/watch?v=p5KErTQGKlM" target="_blank" rel="noopener"><span class="yt">▶</span><span>Vídeo de referência (YouTube) — título não disponível para pré-visualização</span></a>
+      <a class="study-item" href="https://www.youtube.com/watch?v=-F0dZ2GxSuA&t=617s" target="_blank" rel="noopener"><span class="yt">▶</span><span>Full Polymarket Bot Build | Claude Code Tutorial</span></a>
+      <a class="study-item" href="https://www.youtube.com/watch?v=YsBGfETp3OM" target="_blank" rel="noopener"><span class="yt">▶</span><span>I Tested 432 AI Trading Bots. This Won.</span></a>
+      <a class="study-item" href="https://www.youtube.com/watch?v=4ZPgY65SAfw" target="_blank" rel="noopener"><span class="yt">▶</span><span>Como conectar o Claude no TradingView | passo a passo sem erro</span></a>
+    </div>
+  </section>
 
   <footer>
     Fontes: <span class="tag">github.com/TauricResearch/TradingAgents</span> (Apache-2.0), a fatia financeira de <span class="tag">github.com/Shubhamsaboo/awesome-llm-apps</span> (Apache-2.0), e os padrões de trust-gating / auditoria hash-chained e earnings-call analysis do mesmo repositório. O ramo "necessidades reais do trader" vem de pesquisa de mercado sobre infraestrutura de execução, gestão de risco, diário de trade, psicologia de day trading e compliance de algo trading (TradeAlgo, ChartMini, TradeTally, TradesViz, Optimus Futures, ACY, Nurp, Sahi). Todos rotulados para fins de pesquisa, não como conselho financeiro.
