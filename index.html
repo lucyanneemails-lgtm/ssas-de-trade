@@ -558,6 +558,8 @@
       <a class="study-item" href="https://www.youtube.com/watch?v=YsBGfETp3OM" target="_blank" rel="noopener"><span class="yt">▶</span><span>I Tested 432 AI Trading Bots. This Won.</span></a>
       <a class="study-item" href="https://www.youtube.com/watch?v=4ZPgY65SAfw" target="_blank" rel="noopener"><span class="yt">▶</span><span>Como conectar o Claude no TradingView | passo a passo sem erro</span></a>
       <a class="study-item" href="https://antonyburse.com/minicurso" target="_blank" rel="noopener"><span class="yt caution">!</span><span>Minicurso Antony Burse — "IA de sinais" p/ trading<span class="caution-note">⚠ funil de venda: promessa de retorno garantido, empurra corretora específica</span></span></a>
+      <a class="study-item" href="https://financialmove.com.br/tpw-countdown/" target="_blank" rel="noopener"><span class="yt caution">!</span><span>Financial Move — robô de cripto (Tasso Lago)<span class="caution-note">⚠ funil: R$97, "10 vagas de 200" + countdown, promete 107% APR</span></span></a>
+      <a class="study-item" href="https://gorila.vip/" target="_blank" rel="noopener"><span class="yt caution">!</span><span>gorila.vip — link-in-bio de campanha paga<span class="caution-note">⚠ conteúdo não verificável (bloqueou acesso automatizado)</span></span></a>
     </div>
   </section>
 
@@ -569,6 +571,58 @@
         <span class="k">Benchmark (BR) · sem IA</span>
         <h3>SmarttBot</h3>
         <p>Plataforma brasileira de automação de day trade focada em mini contratos da B3, com robô visual sem código, marketplace de estratégias, backtesting e calculadora de IR/DARF desde 2011. Confirmado em múltiplas fontes: não usa IA/machine learning — é configuração de regras via indicador técnico tradicional. Assinatura mensal (R$100–800) + cobrança à parte pela programação inicial do robô. Referência de UX e de mercado local, não de arquitetura de IA. <a href="https://smarttbot.com/" target="_blank" rel="noopener" style="color:var(--skip)">smarttbot.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="study">
+    <h2>Bibliotecas de execução e backtesting</h2>
+    <p class="study-sub">Repositórios open-source pra resolver o gap de "infraestrutura de execução" do mapa — não decidem o que operar (isso é o TradingAgents), executam e testam a decisão.</p>
+    <div class="cards" style="margin-top:0;">
+      <div class="card use">
+        <span class="k">23,1k ⭐ · Python</span>
+        <h3>backtrader</h3>
+        <p>Motor de backtesting mais maduro do ecossistema Python — resolve direto o gap "rodar backtest antes de dinheiro real" que está marcado como base no mapa. <a href="https://github.com/mementum/backtrader" target="_blank" rel="noopener" style="color:var(--use)">mementum/backtrader</a></p>
+      </div>
+      <div class="card use">
+        <span class="k">28,3k ⭐ · Rust</span>
+        <h3>NautilusTrader</h3>
+        <p>Motor de execução "production-grade", determinístico e orientado a evento — é exatamente o que falta hoje: infraestrutura de execução real, não protótipo de pesquisa. <a href="https://github.com/nautechsystems/nautilus_trader" target="_blank" rel="noopener" style="color:var(--use)">nautechsystems/nautilus_trader</a></p>
+      </div>
+      <div class="card adapt">
+        <span class="k">53,9k ⭐ · Python</span>
+        <h3>freqtrade</h3>
+        <p>Bot de trade de cripto pronto para uso, com backtest e otimização embutidos. Só entra em jogo se o SSAS expandir de ações/B3 pra cripto — hoje o mapa é focado em ações. <a href="https://github.com/freqtrade/freqtrade" target="_blank" rel="noopener" style="color:var(--adapt)">freqtrade/freqtrade</a></p>
+      </div>
+      <div class="card adapt">
+        <span class="k">43,8k ⭐ · Python/JS</span>
+        <h3>ccxt</h3>
+        <p>API unificada pra mais de 100 corretoras de cripto. Não cobre B3 — só vira peça útil se moedas/cripto entrarem no escopo do SSAS, como discutido antes. <a href="https://github.com/ccxt/ccxt" target="_blank" rel="noopener" style="color:var(--adapt)">ccxt/ccxt</a></p>
+      </div>
+      <div class="card use">
+        <span class="k">2,0k ⭐ · Python</span>
+        <h3>Lumibot</h3>
+        <p>Agentes de trade "backtestáveis" cobrindo ações, opções, cripto, futuros, forex — inclusive dados de filing da SEC e macro do FRED — já plugado a corretoras reais. Alinhado com a filosofia de agente do SSAS. <a href="https://github.com/Lumiwealth/lumibot" target="_blank" rel="noopener" style="color:var(--use)">Lumiwealth/lumibot</a></p>
+      </div>
+      <div class="card use">
+        <span class="k">9,0k ⭐ · Python</span>
+        <h3>vectorbt</h3>
+        <p>Motor de backtest vetorizado — roda milhares de variações de estratégia em paralelo. Útil pra testar position sizing e regras de risco em escala antes de escolher uma. <a href="https://github.com/polakowo/vectorbt" target="_blank" rel="noopener" style="color:var(--use)">polakowo/vectorbt</a></p>
+      </div>
+      <div class="card skip">
+        <span class="k">19,7k ⭐ · Python</span>
+        <h3>Hummingbot</h3>
+        <p>Bots de trade de alta frequência em cripto. Foge do escopo atual do SSAS (nem é ação/B3, nem é o ritmo de decisão que o pipeline analistas→debate→trader comporta). <a href="https://github.com/hummingbot/hummingbot" target="_blank" rel="noopener" style="color:var(--skip)">hummingbot/hummingbot</a></p>
+      </div>
+      <div class="card use">
+        <span class="k">3,7k ⭐ · Python</span>
+        <h3>FinRL-X</h3>
+        <p>Já apareceu na pesquisa de concorrentes: unifica dado → estratégia → backtest → execução na corretora num só pipeline. Resolve especificamente o gap "sinal até execução" que os frameworks de IA puros deixam em aberto. <a href="https://github.com/ai4finance-foundation/finrl-trading" target="_blank" rel="noopener" style="color:var(--use)">ai4finance-foundation/finrl-trading</a></p>
+      </div>
+      <div class="card skip">
+        <span class="k">8 ⭐ · JavaScript</span>
+        <h3>Bitquery Polymarket API</h3>
+        <p>SDK pequeno e pouco adotado pra puxar dado de mercado de previsão (Polymarket) — nicho de apostas/eventos, não de ações ou cripto tradicional. Só relevante se o SSAS um dia cobrir mercado de previsão. <a href="https://github.com/bitquery/polymarket-api" target="_blank" rel="noopener" style="color:var(--skip)">bitquery/polymarket-api</a></p>
       </div>
     </div>
   </section>
